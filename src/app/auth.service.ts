@@ -70,6 +70,12 @@ export class AuthService {
   }
 
   login(redirectPath: string = '/') {
+    let uri = (window.location.origin.includes('github')) ?
+      `${window.location.origin}/RoomDig/callback` :
+      window.location.origin;
+    if (window.location.origin.includes('github')) {
+
+    }
     console.log(window.location.origin)
     // A desired redirect path can be passed to login method
     // (e.g., from a route guard)
@@ -77,7 +83,7 @@ export class AuthService {
     this.auth0Client$.subscribe((client: Auth0Client) => {
       // Call method to log in
       client.loginWithRedirect({
-        redirect_uri: `${window.location.origin}/callback`,
+        redirect_uri: uri,
         appState: { target: redirectPath }
       });
     });
@@ -110,13 +116,15 @@ export class AuthService {
   }
 
   logout() {
-    console.log(window.location.origin)
+    let uri = (window.location.origin.includes('github')) ?
+      `${window.location.origin}/RoomDig/callback` :
+      window.location.origin;
     // Ensure Auth0 client instance exists
     this.auth0Client$.subscribe((client: Auth0Client) => {
       // Call method to log out
       client.logout({
         client_id: "vsUIGBX3QI5QZj50lHyy7v0DjUha80xe",
-        returnTo: `${window.location.origin}`
+        returnTo: uri
       });
     });
   }
