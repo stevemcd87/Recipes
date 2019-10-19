@@ -1,2 +1,10 @@
 <app-navbar></app-navbar>
+<ul class="posts">
+  <li *ngFor="let post of posts">
+    <a routerLink="/detail/{{post.id}}">
+      <span class="badge">{{post.id}}</span> {{post.email}}
+    </a>
+
+  </li>
+</ul>
 <router-outlet></router-outlet>
