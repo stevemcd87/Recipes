@@ -117,7 +117,7 @@ export class AuthService {
 
   logout() {
     let uri = (window.location.origin.includes('github')) ?
-      `${window.location.origin}/RoomDig/callback` :
+      `${window.location.origin}/RoomDig/` :
       window.location.origin;
     // Ensure Auth0 client instance exists
     this.auth0Client$.subscribe((client: Auth0Client) => {
