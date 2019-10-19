@@ -70,6 +70,7 @@ export class AuthService {
   }
 
   login(redirectPath: string = '/') {
+    console.log(window.location.origin)
     // A desired redirect path can be passed to login method
     // (e.g., from a route guard)
     // Ensure Auth0 client instance exists
@@ -109,6 +110,7 @@ export class AuthService {
   }
 
   logout() {
+    console.log(window.location.origin)
     // Ensure Auth0 client instance exists
     this.auth0Client$.subscribe((client: Auth0Client) => {
       // Call method to log out
