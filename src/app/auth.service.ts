@@ -72,10 +72,7 @@ export class AuthService {
   login(redirectPath: string = '/') {
     let uri = (window.location.origin.includes('github')) ?
       `${window.location.origin}/RoomDig/callback` :
-      window.location.origin;
-    if (window.location.origin.includes('github')) {
-
-    }
+      `${window.location.origin}/callback`;
     console.log(window.location.origin)
     // A desired redirect path can be passed to login method
     // (e.g., from a route guard)

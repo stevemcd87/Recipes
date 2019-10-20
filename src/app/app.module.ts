@@ -12,7 +12,9 @@ import { CallbackComponent } from './callback/callback.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { PostService } from './post.service';
+import { PostService } from './post/post.service';
+import { PostComponent } from './post/post.component';
+import { PostDetailComponent } from './post/post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PostService } from './post.service';
     HomeComponent,
     CallbackComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div *ngIf="post" class="post">
+  <!-- <h2>{{post.userName}}</h2> -->
+  <h3>{{post.dishName}}</h3>
+  <ul class="post-ingredients">
+    <li *ngFor="let ingredient of post.ingredients"
+      class="post-ingredient">
+      {{ingredient.ingredient}} - {{ingredient.amount}}
+    </li>
+  </ul>
+  <ul class="post-directions">
+    <li *ngFor="let direction of post.directions"
+      class="post-direction">
+      {{direction}}
+    </li>
+  </ul>
+</div>

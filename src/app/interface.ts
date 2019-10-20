@@ -1,13 +1,13 @@
 export interface IPost {
   id: number,
-  email:string,
-  title?: string,
+  userEmail:string,
+  userName:string,
+  dishName?: string,
   ingredients?: IIngredient[],
   directions?: string[]
 }
 
 export interface IIngredient {
-  ingredient: string,
-  measurement: string,
-  amount: number
+  ingredient?: string,
+  amount?: string
 }

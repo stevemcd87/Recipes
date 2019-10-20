@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
-import { PostService } from './post.service';
-
-import { IPost} from './interface';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +7,12 @@ import { IPost} from './interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'roomdig';
-  posts: IPost[];
-  constructor(private auth: AuthService, private ps: PostService) {}
+  constructor(private auth: AuthService) {}
   ngOnInit() {
     console.log('hey')
     this.auth.localAuthSetup();
-    this.getPosts();
+
   }
 
-  getPosts(): void {
-  this.ps.getPosts()
-  .subscribe(posts => this.posts = posts);
-}
+
 }

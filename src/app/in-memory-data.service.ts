@@ -7,8 +7,18 @@ import { IPost} from './interface';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const posts = [
-      { id: 11, email: 'stephenmcdonald8787@gmail.com' },
-      { id: 12, email: 'stephenmcdonald8787@gmail.com' }
+      { id: 11,
+        userEmail: 'stephenmcdonald8787@gmail.com',
+        userName: 'Stephen McDonald',
+        dishName: 'Flan',
+        ingredients: [
+          {ingredient: 'eggs', amount: '3' }
+        ],
+        directions:[
+          'get flour',
+          'do more stuff'
+        ]
+      }
     ];
     return {posts};
   }
