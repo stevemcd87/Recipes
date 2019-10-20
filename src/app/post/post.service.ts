@@ -21,12 +21,20 @@ export class PostService {
       );
   }
 
-    /** GET hero by id. Will 404 if id not found */
+    /** GET Post by id. Will 404 if id not found */
   getPost(id: number): Observable<IPost> {
     const url = `${this.postsUrl}/${id}`;
     return this.http.get<IPost>(url).pipe(
       tap(_ => console.log(`fetched post id=${id}`)),
       catchError(this.handleError<IPost>(`getPost id=${id}`))
+    );
+  }
+
+    /** POST: add a new Post to the server */
+  addPost (post: IPost): Observable<IPost> {
+    return this.http.post<IPost>(this.postsUrl, post, this.httpOptions).pipe(
+      tap((newPost: IPost) => console.info(`added post w/ id=${newPost.id}`)),
+      catchError(this.handleError<IPost>('addPost'))
     );
   }
 

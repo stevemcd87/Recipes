@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { PostService } from '../post.service';
-
+import { Validators } from '@angular/forms';
+import { FormBuilder, FormArray } from '@angular/forms';
 import { IPost} from '../../interface';
 
 @Component({
@@ -13,11 +14,13 @@ import { IPost} from '../../interface';
 export class PostDetailComponent implements OnInit {
   post: IPost;
 
+
   constructor(
     private auth: AuthService,
     private ps: PostService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -29,17 +32,19 @@ export class PostDetailComponent implements OnInit {
     })
   }
 
+
+
   showPost() {
-    console.log(this.route)
-  const post = this.route.snapshot.paramMap.get('id');
-  console.log(this.route)
-  this.ps.getPost(+post)
-    .subscribe((data: IPost) => {
-      this.post = data;
-      console.log(this.post);
-    }, error => {
-      console.error('Error in getting  post');
-    });
-}
+    const post = this.route.snapshot.paramMap.get('id');
+    this.ps.getPost(+post)
+      .subscribe((data: IPost) => {
+        this.post = data;
+        console.log(this.post);
+      }, error => {
+        console.error('Error in getting  post');
+      });
+  }
+
+
 
 }
