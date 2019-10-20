@@ -117,6 +117,13 @@ export class AuthService {
       `${window.location.origin}/RoomDig/` :
       window.location.origin;
     // Ensure Auth0 client instance exists
+    // Remove tokens and expiry time
+    // this._accessToken = '';
+    // this._idToken = '';
+    // this._expiresAt = 0;
+    // Remove isLoggedIn flag from localStorage
+    localStorage.removeItem('isLoggedIn');
+    // Go back to the home route
     this.auth0Client$.subscribe((client: Auth0Client) => {
       // Call method to log out
       client.logout({
