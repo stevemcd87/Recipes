@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { PostService } from './post.service';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormArray } from '@angular/forms';
-import { IPost} from '../interface';
+import { IPost, IRecipe} from '../interface';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -13,6 +13,7 @@ import { IPost} from '../interface';
 export class PostComponent implements OnInit {
     user = this.auth.userProfile$ ;
     posts: IPost[];
+    recipes: IRecipe[];
     postForm = this.fb.group({
       dishName: ['', Validators.required],
       ingredients: this.fb.array([
@@ -48,10 +49,13 @@ export class PostComponent implements OnInit {
   // }
 
   ngOnInit(  ) {
-    this.showPosts()
+    this.showPosts();
+    this.showRecipes()
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.showPosts();
+        this.showRecipes()
+        console.log(this.recipes)
       }
     });
     this.postFormChanges();
@@ -61,7 +65,7 @@ export class PostComponent implements OnInit {
     let profile = this.auth.userProfile$
     if (profile) {
       profile.subscribe(val=>{
-      console.log(val.email)
+      console.log(val)
       })
     }
     this.ingredients.valueChanges.subscribe(val=>{
@@ -75,6 +79,10 @@ export class PostComponent implements OnInit {
 
   showPosts(): void {
     this.ps.getPosts().subscribe(posts => this.posts = posts);
+  }
+
+  showRecipes(): void {
+    this.ps.getRecipes().subscribe(recipes => this.recipes = recipes);
   }
 
   get ingredients() {

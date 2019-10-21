@@ -1,7 +1,7 @@
 export interface IPost {
-  id: number,
-  userEmail:string,
-  userName:string,
+  id?: number,
+  userEmail?:string,
+  userName?:string,
   dishName?: string,
   ingredients?: IIngredient[],
   directions?: string[]
@@ -20,7 +20,9 @@ export interface IIngredient {
 // }
 
 export interface IRecipe {
-dishName?: string,
-ingredients?: IIngredient[],
-directions?: string[]
+  id: number,
+  postId: number,
+  dishName?: string,
+  ingredients?: IIngredient[],
+  directions?: string[]
 }

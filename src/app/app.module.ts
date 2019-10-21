@@ -14,10 +14,12 @@ import { CallbackComponent } from './callback/callback.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { PostService } from './post/post.service';
-import { PostComponent } from './post/post.component';
-import { PostDetailComponent } from './post/post-detail/post-detail.component';
-
+import { PostService } from './posts/post.service';
+// import { PostComponent } from './post/post.component';
+// import { PostDetailComponent } from './post/post-detail/post-detail.component';
+import { PostsModule } from './posts/posts.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// import { PostListComponent } from './posts/post-list/post-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,12 +27,13 @@ import { PostDetailComponent } from './post/post-detail/post-detail.component';
     CallbackComponent,
     NavbarComponent,
     ProfileComponent,
-    PostComponent,
-    PostDetailComponent
+    // PostComponent,
+    // PostDetailComponent,
+    PageNotFoundComponent,
+    // PostListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -38,7 +41,9 @@ import { PostDetailComponent } from './post/post-detail/post-detail.component';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+        PostsModule,
+    AppRoutingModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]

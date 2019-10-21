@@ -20,6 +20,19 @@ export class InMemoryDataService implements InMemoryDbService {
         ]
       }
     ];
+    // const recipes = [
+    //   { id: 111,
+    //     postEmail: 'stephenmcdonald8787@gmail.com',
+    //     dishName: 'Flan',
+    //     ingredients: [
+    //       {ingredient: 'eggs', amount: '3' }
+    //     ],
+    //     directions:[
+    //       'get flour',
+    //       'do more stuff'
+    //     ]
+    //   }
+    // ];
     return {posts};
   }
 

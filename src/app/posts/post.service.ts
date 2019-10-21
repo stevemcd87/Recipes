@@ -22,13 +22,13 @@ export class PostService {
       );
   }
 
-  getRecipes(): Observable<IRecipe[]> {
-    return this.http.get<IRecipe[]>(this.recipeUrl)
-      .pipe(
-        tap(_ => console.log('fetched Recipes')),
-        catchError(this.handleError<IRecipe[]>('getRecipes', []))
-      );
-  }
+  // getRecipes(): Observable<IRecipe[]> {
+  //   return this.http.get<IRecipe[]>(this.recipeUrl)
+  //     .pipe(
+  //       tap(_ => console.log('fetched Recipes')),
+  //       catchError(this.handleError<IRecipe[]>('getRecipes', []))
+  //     );
+  // }
 
     /** GET Post by id. Will 404 if id not found */
   getPost(id: number): Observable<IPost> {
