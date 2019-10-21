@@ -29,12 +29,31 @@
       </div>
     </div>
         <button type="submit" [disabled]="!postForm.valid">Submit</button>
+
   </form>
+
   <p>
   Form Status: {{ postForm.status }}
 </p>
-</div>
 
+</div>
 <div id="iphone6">
-  
+  <div id="iphone6-screen">
+    <div id="iphone6-recipe">
+      <h2>{{ postForm.value.dishName }}</h2>
+      <div *ngIf="postForm.value.ingredients" id="iphone6-ingredients">
+        Ingredients
+        <div *ngFor="let ing of postForm.value.ingredients " class="iphone6-ingredient">
+          {{ing.ingredient}} - {{ing.amount}}
+        </div>
+      </div>
+      <div *ngIf="postForm.value.directions" id="iphone6-directions">
+        Directions
+        <div *ngFor="let direction of postForm.value.directions " class="iphone6-girection">
+          {{direction}}
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

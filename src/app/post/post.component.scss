@@ -5,5 +5,14 @@
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0 auto;
+  position: relative;
 
+  #iphone6-screen{
+    position: absolute;
+    text-align: center;
+    width: 298px;
+    height: 530px;
+    top:86px;
+    left:22px;
+  }
 }

@@ -55,23 +55,26 @@ export class PostComponent implements OnInit {
       }
     });
     this.postFormChanges();
-    console.log(document)
-    console.log(document.cookie)
   }
 
   postFormChanges():void {
-    // let profile =
-    // this.ingredients.valueChanges.subscribe(val=>{
-    //
-    // })
+    let profile = this.auth.userProfile$
+    if (profile) {
+      profile.subscribe(val=>{
+      console.log(val.email)
+      })
+    }
+    this.ingredients.valueChanges.subscribe(val=>{
+
+
+    })
   }
 
 
 
 
   showPosts(): void {
-    this.ps.getPosts()
-    .subscribe(posts => this.posts = posts);
+    this.ps.getPosts().subscribe(posts => this.posts = posts);
   }
 
   get ingredients() {
@@ -81,6 +84,11 @@ export class PostComponent implements OnInit {
   get directions() {
     return this.postForm.get('directions') as FormArray;
   }
+
+  // get profile() {
+  //
+  //   return ()
+  // }
 
   addIngredient() {
     this.ingredients.push(this.fb.group({
