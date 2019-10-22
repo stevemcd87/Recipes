@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
-import { NavbarComponent } from './navbar/navbar.component';
+// import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { PostService } from './posts/post.service';
@@ -25,7 +25,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     HomeComponent,
     CallbackComponent,
-    NavbarComponent,
+    // NavbarComponent,
     ProfileComponent,
     // PostComponent,
     // PostDetailComponent,

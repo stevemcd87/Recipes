@@ -10,6 +10,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 11,
         userEmail: 'stephenmcdonald8787@gmail.com',
         userName: 'Stephen McDonald',
+        userPicture: "https://lh6.googleusercontent.com/-XZlWad7g3ao/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdk__b9LGXRme6pahIJO-SraGzMGw/photo.jpg",
         dishName: 'Flan',
         ingredients: [
           {ingredient: 'eggs', amount: '3' }
@@ -22,6 +23,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 12,
         userEmail: 'stephenmcdonald8787@gmail.com',
         userName: 'Stephen McDonald',
+          userPicture: "https://lh6.googleusercontent.com/-XZlWad7g3ao/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdk__b9LGXRme6pahIJO-SraGzMGw/photo.jpg",
         dishName: 'Meatloaf with Brown Sugar Glaze',
         ingredients: [
           { amount: '1 pound', ingredient: 'Ground Beef' },

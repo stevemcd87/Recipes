@@ -1,6 +1,7 @@
 export interface IPost {
   id?: number,
   userEmail?:string,
+  userPicture?:string,
   userName?:string,
   dishName?: string,
   ingredients?: IIngredient[],
