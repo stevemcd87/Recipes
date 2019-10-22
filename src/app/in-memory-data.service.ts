@@ -18,6 +18,31 @@ export class InMemoryDataService implements InMemoryDbService {
           'get flour',
           'do more stuff'
         ]
+      },
+      { id: 12,
+        userEmail: 'stephenmcdonald8787@gmail.com',
+        userName: 'Stephen McDonald',
+        dishName: 'Meatloaf with Brown Sugar Glaze',
+        ingredients: [
+          { amount: '1 pound', ingredient: 'Ground Beef' },
+          { amount: '2 teaspoons', ingredient: 'Salt' },
+          { amount: '1 teaspoon', ingredient: 'Black Pepper' },
+          { amount: '1/2 cup', ingredient: 'chopped White Onion' },
+          { amount: '1/2 cup', ingredient: 'chopped Green Pepper' },
+          { amount: '1', ingredient: 'Eggs' },
+          { amount: '8 ounce ', ingredient: 'diced Tomatoes' },
+          { amount: '1/2 cup', ingredient: 'cooking Oats' },
+          { amount: '1/3 cup', ingredient: 'Kethup' },
+          { amount: '3 tablespoons', ingredient: 'Brown Sugar' },
+          { amount: '2 tablespoons ', ingredient: 'yellow Mustard' }
+        ],
+        directions:[
+          "Preheat your oven to 375 degrees.",
+          "Mix the ground beef, salt, pepper, onion, green peppers, egg, oats and diced tomatoes well.",
+          "Form a loaf and place in a baking dish.",
+          "Mix ketchup, brown sugar and mustard together and spread over meatloaf.",
+          "Bake uncovered 1 hour, draining grease away if needed"
+        ]
       }
     ];
     // const recipes = [

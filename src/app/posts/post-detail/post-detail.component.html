@@ -1,22 +1,22 @@
 <div *ngIf="post" class="post">
-
-    <button type="button" >Edit</button>
-    <div class="show-post">
-    <h3>{{post.dishName}}</h3>
-    <ul class="post-ingredients">
-      <h4>Ingredients</h4>
-      <li *ngFor="let ingredient of post.ingredients"
-        class="post-ingredient">
-        {{ingredient.ingredient}} - {{ingredient.amount}}
-      </li>
-    </ul>
-    <ul class="post-directions">
-      <h4>Directions</h4>
-      <li *ngFor="let direction of post.directions"
-        class="post-direction">
-        {{direction}}
-      </li>
-    </ul>
+    <!-- <button type="button" >Edit</button> -->
+  <div id="recipe">
+    <div id="show-post">
+      <p id="post-dish-name">{{post.dishName}}</p>
+      <ul id="post-ingredients">
+        <p>Ingredients</p>
+        <li *ngFor="let ingredient of post.ingredients"
+          class="post-ingredient">
+          {{ingredient.ingredient}} - {{ingredient.amount}}
+        </li>
+      </ul>
+      <ul id="post-directions">
+        <p>Directions</p>
+        <li *ngFor="let direction of post.directions"
+          class="post-direction">
+          {{direction}}
+        </li>
+      </ul>
+    </div>
   </div>
-
 </div>

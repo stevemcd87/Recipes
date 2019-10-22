@@ -1,8 +1,23 @@
 <header>
-  <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-  <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
-  <a routerLink="/">Home</a>&nbsp;
-  <a routerLink="posts" >Posts</a>
-  <!-- <a routerLink="posts" >Posts</a> -->
-  <!-- <a routerLink="posts" >Posts</a> -->
+  <div id="login-buttons">
+    <button
+      *ngIf="!auth.loggedIn"
+      class="login-button"
+      (click)="auth.login()">
+      Log In
+    </button>
+    <div id="profile">
+      <button
+        *ngIf="auth.loggedIn"
+        class="login-button"
+        (click)="auth.logout()" >
+        Log Out
+      </button>
+    </div>
+  </div>
+  <div id="router-links">
+    <a routerLink="/">Home</a>&nbsp;
+    <a routerLink="posts" >Posts</a>
+    <a routerLink="profile" >Profile</a>
+  </div>
 </header>

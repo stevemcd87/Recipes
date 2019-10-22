@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto&display=swap');
+
+html {
+  min-height: 99vh;
+  max-width: 99vw;
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #eacd98;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+}

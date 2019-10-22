@@ -1,0 +1,21 @@
+main {
+  background-image: url('../assets/images/food-bg2.png');
+  width: 95vw;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 95vh;
+  background-color: #fcf8f5;
+  padding-bottom: 1em;
+
+  #main-child{
+    min-height: 300px;
+    background-color: #eacd98;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: 1.5em 0em;
+  }
+}

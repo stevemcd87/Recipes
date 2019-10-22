@@ -1,34 +1,46 @@
-<p>post-list works!</p>
-<ul class="posts">
-  <li *ngFor="let post of posts">
-    <a routerLink="/posts/{{post.id}}">
-      <span class="badge">{{post.userName}}</span>
-    </a>
-  </li>
-</ul>
+<div id="post-list-component">
+  <ul id="post-list">
+    <li *ngFor="let post of posts">
+      <span>
+        <a
+          class="post"
+          routerLink="/posts/{{post.id}}">
+          {{post.dishName}}
+        </a>
+      </span>
+      <span class="dash"> &ndash; </span>
+      <span>{{post.userName}}</span>
+    </li>
+  </ul>
 
-<router-outlet ></router-outlet>
 
-<div *ngIf="postForm">
-  <div id="iphone6">
-    <div id="iphone6-screen">
-      <div id="iphone6-recipe">
-        <h2>{{ postForm.dishName }}</h2>
-        <div *ngIf="postForm.ingredients" id="iphone6-ingredients">
-          Ingredients
-          <div *ngFor="let ing of postForm.ingredients " class="iphone6-ingredient">
-            {{ing.ingredient}} - {{ing.amount}}
+
+  <!-- <a href="#">Add Recipe</a> -->
+
+  <div id="post-child">
+    <router-outlet ></router-outlet>
+  </div>
+
+
+  <div *ngIf="postForm">
+    <div id="iphone6">
+      <div id="iphone6-screen">
+        <div id="iphone6-recipe">
+          <h2>{{ postForm.dishName }}</h2>
+          <div *ngIf="postForm.ingredients" id="iphone6-ingredients">
+            Ingredients
+            <div *ngFor="let ing of postForm.ingredients " class="iphone6-ingredient">
+              {{ing.ingredient}} &ndash; {{ing.amount}}
+            </div>
           </div>
-        </div>
-        <div *ngIf="postForm.directions" id="iphone6-directions">
-          Directions
-          <div *ngFor="let direction of postForm.directions " class="iphone6-girection">
-            {{direction}}
+          <div *ngIf="postForm.directions" id="iphone6-directions">
+            Directions
+            <div *ngFor="let direction of postForm.directions " class="iphone6-girection">
+              {{direction}}
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>

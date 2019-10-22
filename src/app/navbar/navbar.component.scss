@@ -1,0 +1,30 @@
+#login-buttons {
+  padding-top: 3em;
+  .login-button {
+    font-size: 1.5em;
+    padding: .3em;
+    background-color: #eacd98;
+    color: #834a37;
+    border:  1px solid #834a37;
+  }
+}
+
+
+
+#router-links {
+  background-color: #eacd98;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 1em ;
+  border-bottom: 2px solid #834a37;
+  font-size: 1.5em;
+  a {
+    color: #834a37;
+    padding: .3em;
+    margin-bottom: .5em;
+    // background-color: #eacd98;
+    // border:  1px solid #834a37;
+  }
+}
