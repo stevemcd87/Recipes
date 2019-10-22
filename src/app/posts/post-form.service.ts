@@ -8,10 +8,12 @@ export class PostFormService {
   // Observable string sources
   // private postFormAnnouncedSource = new Subject<IPost>();
   private postFormConfirmedSource = new Subject<IPost>();
+  // private postListConfirmedSource = new Subject<IPost[]>();
 
   // Observable string streams
   // postFormAnnounced$ = this.postFormAnnouncedSource.asObservable();
   postFormConfirmed$ = this.postFormConfirmedSource.asObservable();
+  // postListConfirmed$ = this.postListConfirmedSource.asObservable();
 
   // Service message commands
   // announcePostForm(mission: string) {
@@ -21,4 +23,8 @@ export class PostFormService {
   confirmPostForm(postForm: IPost) {
     this.postFormConfirmedSource.next(postForm);
   }
+
+  // confirmPostList(postList: IPost[]) {
+  //   this.postListConfirmedSource.next(postList);
+  // }
 }

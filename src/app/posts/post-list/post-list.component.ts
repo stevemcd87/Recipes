@@ -18,11 +18,8 @@ export class PostListComponent implements OnInit {
   user = this.auth.userProfile$ ;
   posts: IPost[];
   mobile: boolean;
-  // @ViewChild(PostAddComponent, {static: false})
-  // private detailComponent: PostAddComponent;
   postForm: IPost;
   phonePost: IPost;
-  private width:number;
 
   constructor(
     private auth: AuthService,
@@ -44,6 +41,7 @@ export class PostListComponent implements OnInit {
   ngOnInit(  ) {
 
     this.showPosts();
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.showPosts();
@@ -59,7 +57,10 @@ export class PostListComponent implements OnInit {
   // }
 
   showPosts(): void {
-    this.ps.getPosts().subscribe(posts => this.posts = posts);
+    this.ps.getPosts().subscribe(posts => {
+      this.posts = posts;
+      
+    });
   }
 
 
