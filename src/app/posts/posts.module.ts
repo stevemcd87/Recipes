@@ -7,13 +7,15 @@ import { PostsRoutingModule } from './posts-routing.module';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostAddComponent } from './post-add/post-add.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { IphoneComponent } from './iphone/iphone.component';
 
 
 @NgModule({
   declarations: [
     PostListComponent,
     PostAddComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    IphoneComponent
   ],
   imports: [
     CommonModule,

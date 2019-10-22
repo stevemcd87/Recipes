@@ -1,0 +1,34 @@
+<!-- <div id="iphone6">
+  <div id="iphone6-screen">
+    <div id="iphone6-recipe">
+      <h2>{{ postForm.dishName }}</h2>
+      <div *ngIf="postForm.ingredients" id="iphone6-ingredients">
+        Ingredients
+        <div *ngFor="let ing of postForm.ingredients " class="iphone6-ingredient">
+          {{ing.ingredient}} &ndash; {{ing.amount}}
+        </div>
+      </div>
+      <div *ngIf="postForm.directions" id="iphone6-directions">
+        Directions
+        <div *ngFor="let direction of postForm.directions " class="iphone6-girection">
+          {{direction}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div id="iphone6-recipe">
+  <h2>{{ postForm.dishName }}</h2>
+  <div *ngIf="postForm.ingredients" id="iphone6-ingredients">
+    Ingredients
+    <div *ngFor="let ing of postForm.ingredients " class="iphone6-ingredient">
+      {{ing.ingredient}} &ndash; {{ing.amount}}
+    </div>
+  </div>
+  <div *ngIf="postForm.directions" id="iphone6-directions">
+    Directions
+    <div *ngFor="let direction of postForm.directions " class="iphone6-girection">
+      {{direction}}
+    </div>
+  </div>
+</div>

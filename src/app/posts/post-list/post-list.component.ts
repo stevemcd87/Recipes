@@ -17,10 +17,13 @@ import { IPost} from '../../interface';
 export class PostListComponent implements OnInit {
   user = this.auth.userProfile$ ;
   posts: IPost[];
+  mobile: boolean;
   // @ViewChild(PostAddComponent, {static: false})
   // private detailComponent: PostAddComponent;
   postForm: IPost;
   phonePost: IPost;
+  private width:number;
+
   constructor(
     private auth: AuthService,
     private ps: PostService,
@@ -33,9 +36,13 @@ export class PostListComponent implements OnInit {
       postForm => {
         this.postForm = postForm;
       });
+    this.mobile = (window.innerWidth < 450) ? true : false;
+    console.log(this.mobile)
+
    }
 
   ngOnInit(  ) {
+
     this.showPosts();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

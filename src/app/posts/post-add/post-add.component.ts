@@ -58,9 +58,7 @@ export class PostAddComponent implements OnInit {
       })
     }
     this.postForm.valueChanges.subscribe(val=>{
-      console.log(val);
       this.pfs.confirmPostForm(val);
-
     })
   }
   //
