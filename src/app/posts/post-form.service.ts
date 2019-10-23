@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject }    from 'rxjs';
 import { IPost} from '../interface';
-
+import { Validators } from '@angular/forms';
 @Injectable()
 export class PostFormService {
 
@@ -24,7 +24,19 @@ export class PostFormService {
     this.postFormConfirmedSource.next(postForm);
   }
 
-  // confirmPostList(postList: IPost[]) {
-  //   this.postListConfirmedSource.next(postList);
-  // }
+  basicFormValidations(){
+    return [
+      Validators.required,
+      Validators.maxLength(25),
+      Validators.minLength(1)
+    ]
+  }
+
+  basicFormDirectionsValidations(){
+    return [
+      Validators.required,
+      Validators.maxLength(100),
+      Validators.minLength(2)
+    ]
+  }
 }

@@ -5,6 +5,7 @@ import { PostService } from '../../post.service';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormArray, FormGroup, FormControl} from '@angular/forms';
 import { IPost} from '../../../interface';
+import { PostFormService } from '../../post-form.service';
 @Component({
   selector: 'app-post-detail-edit',
   templateUrl: './post-detail-edit.component.html',
@@ -29,7 +30,8 @@ export class PostDetailEditComponent implements OnInit {
     private ps: PostService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private pfs: PostFormService
   ) { }
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class PostDetailEditComponent implements OnInit {
         this.post = data;
         console.log(this.post);
         this.postForm = this.fb.group({
-          dishName: [this.post.dishName, this.basicFormValidations()],
+          dishName: [this.post.dishName, this.pfs.basicFormValidations()],
           ingredients: this.fb.array(this.ingredientsFormArray),
           directions: this.fb.array(this.directionsFormArray)
         });
@@ -58,16 +60,10 @@ export class PostDetailEditComponent implements OnInit {
       });
     }
 
-    basicFormValidations(){
-      return [
-        Validators.required,
-        Validators.maxLength(25),
-        Validators.minLength(2)
-      ]
-    }
-
   save(): void {
     const post = {...this.post, ...this.postForm.value};
+    console.log(this.postForm);
+
     if (this.postForm.valid) {
       this.ps.updatePost(post)
         .subscribe((val)=>{
@@ -86,8 +82,8 @@ export class PostDetailEditComponent implements OnInit {
        this.post.ingredients.map((ingredient)=>{
          return (
             this.fb.group({
-             ingredient: this.fb.control(ingredient.ingredient,  this.basicFormValidations()),
-             amount: this.fb.control(ingredient.amount,  this.basicFormValidations())
+             ingredient: this.fb.control(ingredient.ingredient,  this.pfs.basicFormValidations()),
+             amount: this.fb.control(ingredient.amount,  this.pfs.basicFormValidations())
            })
          ) as FormGroup
        })
@@ -107,7 +103,7 @@ export class PostDetailEditComponent implements OnInit {
   }
 
   get directionsFormArray(){
-    return this.post.directions.map(direction=> this.fb.control(direction,  this.basicFormValidations()))
+    return this.post.directions.map(direction=> this.fb.control(direction,  this.pfs.basicFormDirectionsValidations()))
   }
 
   get directions() {

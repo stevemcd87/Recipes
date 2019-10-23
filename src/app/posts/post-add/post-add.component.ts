@@ -16,15 +16,15 @@ export class PostAddComponent implements OnInit {
   posts: IPost[];
   recipes: IRecipe[];
   postForm = this.fb.group({
-    dishName: ['', Validators.required],
+    dishName: ['', this.pfs.basicFormValidations()],
     ingredients: this.fb.array([
       this.fb.group({
-        ingredient: this.fb.control(''),
-        amount: this.fb.control('')
+        ingredient: this.fb.control('',this.pfs.basicFormValidations()),
+        amount: this.fb.control('',this.pfs.basicFormValidations())
       })
     ]),
     directions: this.fb.array([
-      this.fb.control('')
+      this.fb.control('',this.pfs.basicFormDirectionsValidations())
     ])
   });
   phonePost: IPost;
@@ -58,24 +58,38 @@ export class PostAddComponent implements OnInit {
     })
   }
 
+  get dishName() {return this.postForm.get('dishName');}
+
   get ingredients() {
     return this.postForm.get('ingredients') as FormArray;
+  }
+
+  ingredient(index) {
+    return this.ingredients.controls[index].get('ingredient')
+  }
+
+  amount(index) {
+    return this.ingredients.controls[index].get('amount')
   }
 
   get directions() {
     return this.postForm.get('directions') as FormArray;
   }
 
+  direction(index) {
+    return this.directions.controls[index]
+  }
+
   addIngredient() {
     this.ingredients.push(this.fb.group({
-      ingredient: this.fb.control(''),
-      amount:  this.fb.control('')
+      ingredient: this.fb.control('',this.pfs.basicFormValidations()),
+      amount:  this.fb.control('',this.pfs.basicFormValidations())
     }));
   }
 
 
   addDirection() {
-    this.directions.push(this.fb.control(''));
+    this.directions.push(this.fb.control('',this.pfs.basicFormDirectionsValidations()));
   }
 
   addPost(): void {

@@ -4,14 +4,16 @@
       <p id="dish-name-label">Dish Name:</p>
       <div *ngIf="dishName.invalid && (dishName.dirty || dishName.touched)"
         class="alert alert-danger">
-      <div *ngIf="dishName.errors.required || dishName.errors.minlength">
-        Name of Dish must contain at least 2 characters.
+        <div *ngIf="dishName.errors.required || dishName.errors.minlength">
+          Name of Dish must contain at least 1 characters.
+        </div>
+        <div *ngIf="dishName.errors.maxlength">
+          Name of Dish must not be greater than 25 characters.
+        </div>
       </div>
-      <div *ngIf="dishName.errors.maxlength">
-        Name of Dish must not be greater than 25 characters.
-      </div>
-    </div>
-      <input id="dish-name-input" (blur)="dishName.setValue(dishName.value.trim());" type="text" formControlName="dishName" required>
+      <input (blur)="dishName.setValue(dishName.value.trim());"
+        id="dish-name-input" type="text"
+        formControlName="dishName" required>
     </label>
     <div formArrayName="ingredients">
       <h4>Ingredients</h4><button type="button" (click)="addIngredient()">Add Ingredient</button>
@@ -21,7 +23,7 @@
             <div *ngIf="ingredient(i).invalid && (ingredient(i).dirty || ingredient(i).touched)"
                 class="alert alert-danger">
               <div *ngIf="ingredient(i).errors.required || ingredient(i).errors.minlength">
-                Ingredient must contain at least 2 characters
+                Ingredient must contain at least 1 characters
               </div>
               <div *ngIf="ingredient(i).errors.maxlength">
                 Ingredient must not be greater than 25 characters.
@@ -38,7 +40,7 @@
             <div *ngIf="amount(i).invalid && (amount(i).dirty || amount(i).touched)"
                 class="alert alert-danger">
               <div *ngIf="amount(i).errors.required || amount(i).errors.minlength">
-                Amount  must contain at least 2 characters.
+                Amount  must contain at least 1 characters.
               </div>
               <div *ngIf="amount(i).errors.maxlength">
                 Amount must not be greater than 25 characters.
@@ -68,7 +70,8 @@
             Amount must not be greater than 25 characters.
           </div>
         </div>
-        <input [formControlName]="i" type="text" >
+        <input [formControlName]="i" type="text"
+        (blur)="direction(i).setValue(direction(i).value.trim());">
       </div>
     </div>
     <button (click)="save()">save</button>
