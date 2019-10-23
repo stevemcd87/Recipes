@@ -33,8 +33,6 @@ export class PostDetailComponent implements OnInit {
     })
   }
 
-
-
   showPost() {
     const post = this.route.snapshot.paramMap.get('id');
     this.ps.getPost(+post)
@@ -46,6 +44,11 @@ export class PostDetailComponent implements OnInit {
       });
   }
 
-
+  delete(post: IPost): void {
+    this.ps.deletePost(post)
+      .subscribe((val)=>{
+         this.router.navigate(['/posts'])
+       });;
+  }
 
 }

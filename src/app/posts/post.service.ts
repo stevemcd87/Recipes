@@ -48,6 +48,16 @@ export class PostService {
     );
   }
 
+  /** DELETE: delete the post from the server */
+  deletePost (post: IPost): Observable<IPost> {
+    const url = `${this.postsUrl}/${post.id}`;
+    return this.http.delete<IPost>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`deleted post id=${post.id}`)),
+      catchError(this.handleError<IPost>('deletePost'))
+    );
+  }
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
