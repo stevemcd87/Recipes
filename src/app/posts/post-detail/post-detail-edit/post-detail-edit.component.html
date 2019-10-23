@@ -1,21 +1,73 @@
-<div *ngIf="postForm" class="edit-post">
+<div *ngIf="postForm && post" id="edit-post">
   <form [formGroup]="postForm">
     <label>
-      Dish Name:
-      <input type="text" formControlName="dishName" required>
+      <p id="dish-name-label">Dish Name:</p>
+      <div *ngIf="dishName.invalid && (dishName.dirty || dishName.touched)"
+        class="alert alert-danger">
+      <div *ngIf="dishName.errors.required || dishName.errors.minlength">
+        Name of Dish must contain at least 2 characters.
+      </div>
+      <div *ngIf="dishName.errors.maxlength">
+        Name of Dish must not be greater than 25 characters.
+      </div>
+    </div>
+      <input id="dish-name-input" (blur)="dishName.setValue(dishName.value.trim());" type="text" formControlName="dishName" required>
     </label>
     <div formArrayName="ingredients">
       <h4>Ingredients</h4><button type="button" (click)="addIngredient()">Add Ingredient</button>
-      <div *ngFor="let ing of post.ingredients; let i=index">
+      <div *ngFor="let ing of ingredients.controls; let i=index">
         <div [formGroupName]="i">
-          <label>Ingredient: <input formControlName="ingredient" type="text" ></label>
-          <label>Amount: <input formControlName="amount" type="text" ></label>
+          <div class="post-ingredient">
+            <div *ngIf="ingredient(i).invalid && (ingredient(i).dirty || ingredient(i).touched)"
+                class="alert alert-danger">
+              <div *ngIf="ingredient(i).errors.required || ingredient(i).errors.minlength">
+                Ingredient must contain at least 2 characters
+              </div>
+              <div *ngIf="ingredient(i).errors.maxlength">
+                Ingredient must not be greater than 25 characters.
+              </div>
+            </div>
+            <label>Ingredient:
+              <input
+              (blur)="ingredient(i).setValue(ingredient(i).value.trim());"
+              formControlName="ingredient"
+              type="text" >
+            </label>
+          </div>
+          <div class="post-amount">
+            <div *ngIf="amount(i).invalid && (amount(i).dirty || amount(i).touched)"
+                class="alert alert-danger">
+              <div *ngIf="amount(i).errors.required || amount(i).errors.minlength">
+                Amount  must contain at least 2 characters.
+              </div>
+              <div *ngIf="amount(i).errors.maxlength">
+                Amount must not be greater than 25 characters.
+              </div>
+            </div>
+            <label>Amount:
+              <input
+              (blur)="amount(i).setValue(amount(i).value.trim());"
+              formControlName="amount"
+              type="text">
+            </label>
+          </div>
         </div>
       </div>
     </div>
     <div formArrayName="directions">
       <h4>Directions</h4> <button type="button" (click)="addDirection()">Add Direction</button>
-      <div *ngFor="let direction of directions.controls; let i=index">
+      <div class="direction"
+        *ngFor="let dir of directions.controls; let i=index">
+        <div
+          *ngIf="direction(i).invalid && (direction(i).dirty || direction(i).touched)"
+          class="alert alert-danger">
+          <div *ngIf="direction(i).errors.required || direction(i).errors.minlength">
+            Amount  must contain at least 2 characters.
+          </div>
+          <div *ngIf="direction(i).errors.maxlength">
+            Amount must not be greater than 25 characters.
+          </div>
+        </div>
         <input [formControlName]="i" type="text" >
       </div>
     </div>

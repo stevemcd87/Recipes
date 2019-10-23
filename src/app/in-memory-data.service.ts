@@ -24,7 +24,7 @@ export class InMemoryDataService implements InMemoryDbService {
         userEmail: 'stephenmcdonald8787@gmail.com',
         userName: 'Stephen McDonald',
           userPicture: "https://lh6.googleusercontent.com/-XZlWad7g3ao/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdk__b9LGXRme6pahIJO-SraGzMGw/photo.jpg",
-        dishName: 'Meatloaf with Brown Sugar Glaze',
+        dishName: 'Meatloaf w/ BrownSugarGlaze',
         ingredients: [
           { amount: '1 pound', ingredient: 'Ground Beef' },
           { amount: '2 teaspoons', ingredient: 'Salt' },

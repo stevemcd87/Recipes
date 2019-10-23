@@ -3,7 +3,7 @@ import { AuthService } from '../../../auth.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { PostService } from '../../post.service';
 import { Validators } from '@angular/forms';
-import { FormBuilder, FormArray, FormGroup} from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup, FormControl} from '@angular/forms';
 import { IPost} from '../../../interface';
 @Component({
   selector: 'app-post-detail-edit',
@@ -13,7 +13,7 @@ import { IPost} from '../../../interface';
 export class PostDetailEditComponent implements OnInit {
   post: IPost;
   postForm = this.fb.group({
-    dishName: ['', Validators.required],
+    dishName: [''],
     ingredients: this.fb.array([
       this.fb.group({
         ingredient: this.fb.control(''),
@@ -39,6 +39,7 @@ export class PostDetailEditComponent implements OnInit {
         this.showPost();
       }
     })
+
   }
 
   showPost() {
@@ -48,7 +49,7 @@ export class PostDetailEditComponent implements OnInit {
         this.post = data;
         console.log(this.post);
         this.postForm = this.fb.group({
-          dishName: [this.post.dishName, Validators.required],
+          dishName: [this.post.dishName, this.basicFormValidations()],
           ingredients: this.fb.array(this.ingredientsFormArray),
           directions: this.fb.array(this.directionsFormArray)
         });
@@ -57,38 +58,64 @@ export class PostDetailEditComponent implements OnInit {
       });
     }
 
+    basicFormValidations(){
+      return [
+        Validators.required,
+        Validators.maxLength(25),
+        Validators.minLength(2)
+      ]
+    }
+
   save(): void {
     const post = {...this.post, ...this.postForm.value};
-     this.ps.updatePost(post)
-       .subscribe((val)=>{
-         this.router.navigate(['/posts',post.id])
-       });
+    if (this.postForm.valid) {
+      this.ps.updatePost(post)
+        .subscribe((val)=>{
+          this.router.navigate(['/posts',post.id])
+        });
+    } else {
+      alert('Form is not valid')
+    }
+
    }
+
+   get dishName() {return this.postForm.get('dishName');}
 
    get ingredientsFormArray(){
      return (
        this.post.ingredients.map((ingredient)=>{
          return (
             this.fb.group({
-             ingredient: this.fb.control(ingredient.ingredient),
-             amount: this.fb.control(ingredient.amount)
+             ingredient: this.fb.control(ingredient.ingredient,  this.basicFormValidations()),
+             amount: this.fb.control(ingredient.amount,  this.basicFormValidations())
            })
          ) as FormGroup
        })
      )
    }
 
-   get directionsFormArray(){
-     return this.post.directions.map(direction=> this.fb.control(direction))
-   }
-
-
   get ingredients() {
     return this.postForm.get('ingredients') as FormArray;
   }
 
+  ingredient(index) {
+    return this.ingredients.controls[index].get('ingredient')
+  }
+
+  amount(index) {
+    return this.ingredients.controls[index].get('amount')
+  }
+
+  get directionsFormArray(){
+    return this.post.directions.map(direction=> this.fb.control(direction,  this.basicFormValidations()))
+  }
+
   get directions() {
     return this.postForm.get('directions') as FormArray;
+  }
+
+  direction(index) {
+    return this.directions.controls[index]
   }
 
   addIngredient() {
