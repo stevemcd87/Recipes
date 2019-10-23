@@ -1,0 +1,23 @@
+<div *ngIf="postForm" class="edit-post">
+  <form [formGroup]="postForm">
+    <label>
+      Dish Name:
+      <input type="text" formControlName="dishName" required>
+    </label>
+    <div formArrayName="ingredients">
+      <h4>Ingredients</h4><button type="button" (click)="addIngredient()">Add Ingredient</button>
+      <div *ngFor="let ing of post.ingredients; let i=index">
+        <div [formGroupName]="i">
+          <label>Ingredient: <input formControlName="ingredient" type="text" ></label>
+          <label>Amount: <input formControlName="amount" type="text" ></label>
+        </div>
+      </div>
+    </div>
+    <div formArrayName="directions">
+      <h4>Directions</h4> <button type="button" (click)="addDirection()">Add Direction</button>
+      <div *ngFor="let direction of directions.controls; let i=index">
+        <input [formControlName]="i" type="text" >
+      </div>
+    </div>
+    <button (click)="save()">save</button>
+  </form>

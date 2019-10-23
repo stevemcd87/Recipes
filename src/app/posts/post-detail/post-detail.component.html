@@ -1,5 +1,9 @@
 <div *ngIf="post" class="post">
     <!-- <button type="button" >Edit</button> -->
+  <div id="update-links">
+ <a [routerLink]="['/posts',post.id,'edit']">Edit</a>
+ <router-outlet></router-outlet>
+  </div>
   <div id="recipe">
     <div id="show-post">
       <p id="post-dish-name">{{post.dishName}}</p>

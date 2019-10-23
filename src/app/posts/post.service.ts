@@ -22,20 +22,21 @@ export class PostService {
       );
   }
 
-  // getRecipes(): Observable<IRecipe[]> {
-  //   return this.http.get<IRecipe[]>(this.recipeUrl)
-  //     .pipe(
-  //       tap(_ => console.log('fetched Recipes')),
-  //       catchError(this.handleError<IRecipe[]>('getRecipes', []))
-  //     );
-  // }
-
     /** GET Post by id. Will 404 if id not found */
   getPost(id: number): Observable<IPost> {
     const url = `${this.postsUrl}/${id}`;
     return this.http.get<IPost>(url).pipe(
       tap(_ => console.log(`fetched post id=${id}`)),
       catchError(this.handleError<IPost>(`getPost id=${id}`))
+    );
+  }
+
+    /** PUT: update the post on the server */
+  updatePost (post: IPost): Observable<any> {
+    console.log(post);
+    return this.http.put(this.postsUrl, post, this.httpOptions).pipe(
+      tap(_ => console.log(`updated post id=${post.id}`)),
+      catchError(this.handleError<any>('updatePost'))
     );
   }
 
@@ -46,16 +47,6 @@ export class PostService {
       catchError(this.handleError<IPost>('addPost'))
     );
   }
-
-  // getLottoGameOption(game: string, option: string): Observable<ILotto[] | IWinningHistory[] | IComparedLotto[]> {
-  //   const url = `${this.nodeEndPoint}/lotto-games/${game}/${option}`
-  //   return this.http.get<ILotto[] | IWinningHistory[] | IComparedLotto[]>(url)
-  //     .pipe(
-  //       tap(_ => console.log(`fetched Lotto Game option: ${option}`)),
-  //       catchError(this.handleError<ILotto[] | IWinningHistory[] | IComparedLotto[]>(`getLottoGameOption game=${game} option=${option}`))
-  //     );
-  // }
-
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

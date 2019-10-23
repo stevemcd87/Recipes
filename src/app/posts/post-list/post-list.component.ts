@@ -49,17 +49,10 @@ export class PostListComponent implements OnInit {
     });
   }
 
-  // ngAfterViewInit(){
-  //   if (this.detailComponent){
-  //     setTimeout(() => this.postForm = () => this.detailComponent.postForm, 0);
-  //   }
-  //   console.log(this.detailComponent)
-  // }
-
   showPosts(): void {
     this.ps.getPosts().subscribe(posts => {
       this.posts = posts;
-      
+
     });
   }
 

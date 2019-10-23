@@ -38,12 +38,8 @@ export class PostAddComponent implements OnInit {
   ) { }
 
   ngOnInit(  ) {
-    // this.showPosts();
-    // this.showRecipes()
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // this.showPosts();
-        // this.showRecipes()
         console.log(this.recipes)
       }
     });
@@ -61,17 +57,6 @@ export class PostAddComponent implements OnInit {
       this.pfs.confirmPostForm(val);
     })
   }
-  //
-  //
-  //
-  //
-  // showPosts(): void {
-  //   this.ps.getPosts().subscribe(posts => this.posts = posts);
-  // }
-
-  // showRecipes(): void {
-  //   this.ps.getRecipes().subscribe(recipes => this.recipes = recipes);
-  // }
 
   get ingredients() {
     return this.postForm.get('ingredients') as FormArray;
@@ -94,7 +79,7 @@ export class PostAddComponent implements OnInit {
   }
 
   addPost(): void {
-      let profile = {userEmail:'efwec@fver.com', userName:'sytvweg'};
+    const profile = {userEmail:'efwec@fver.com', userName:'sytvweg'};
     console.log(this.auth)
     this.ps.addPost({...profile, ...this.postForm.value } as IPost)
       .subscribe(post => {
