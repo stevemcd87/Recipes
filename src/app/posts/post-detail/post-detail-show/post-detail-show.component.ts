@@ -23,11 +23,9 @@ export class PostDetailShowComponent implements OnInit {
 
   ngOnInit() {
     this.showPost();
-    // this.pfs.confirmPostForm(this.post);
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.showPost();
-        // this.pfs.confirmPostForm(this.post);
       }
     })
     this.mobile = (window.innerWidth < 450) ? true : false;

@@ -55,9 +55,9 @@
       </div>
     <div formArrayName="directions">
       <h4>Directions</h4> <button type="button" (click)="addDirection()">Add Direction</button>
-      <div *ngFor="let direction of directions.controls; let i=index">
-        <input (blur)="direction(i).setValue(direction(i).value.trim());"
-        [formControlName]="i" type="text" >
+      <div *ngFor="let dir of directions.controls; let i=index">
+        <textarea [formControlName]="i" type="text"
+        (blur)="direction(i).setValue(direction(i).value.trim());"></textarea>
       </div>
     </div>
         <button type="submit" [disabled]="!postForm.valid">Submit</button>

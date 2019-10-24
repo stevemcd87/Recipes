@@ -31,18 +31,18 @@ export class PostAddComponent implements OnInit, OnDestroy {
   constructor(
     private auth: AuthService,
     private ps: PostService,
-    private route: ActivatedRoute,
+    // private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
     private pfs:PostFormService
   ) { }
 
   ngOnInit(  ) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        console.log(this.recipes)
-      }
-    });
+    // this.router.events.subscribe(event => {
+    //   if (event instanceof NavigationEnd) {
+    //     // this.pfs.confirmPostForm(this.postForm.value);
+    //   }
+    // });
     this.pfs.confirmPostForm(this.postForm.value);
     this.postFormChanges();
   }
@@ -52,12 +52,6 @@ export class PostAddComponent implements OnInit, OnDestroy {
   }
 
   postFormChanges():void {
-    let profile = this.auth.userProfile$
-    if (profile) {
-      profile.subscribe(val=>{
-      console.log(val)
-      })
-    }
     this.postForm.valueChanges.subscribe(val=>{
       this.pfs.confirmPostForm(val);
     })
@@ -98,20 +92,18 @@ export class PostAddComponent implements OnInit, OnDestroy {
   }
 
   addPost(): void {
-    const profile = {userEmail:'efwec@fver.com', userName:'sytvweg'};
-    console.log(this.auth)
+    let profile: IPost;
+    this.auth.userProfile$.subscribe(val=>{
+    profile = {userEmail: val.email, userName:val.name, userPicture: val.picture}
+    })
     this.ps.addPost({...profile, ...this.postForm.value } as IPost)
       .subscribe(post => {
-        console.log('postd');
-        console.log(post);
+        this.router.navigate(['/posts', post.id])
       });
   }
 
   onSubmit() {
-    let profile = {userEmail:'efwec@fver.com', userName:'sytvweg'};
-    // TODO: Use EventEmitter with form value
     this.addPost()
-    console.warn({...profile, ...this.postForm.value } );
   }
 
 }

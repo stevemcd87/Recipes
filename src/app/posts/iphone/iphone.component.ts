@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { PostFormService } from '../post-form.service';
 import { PostService } from '../post.service';
@@ -20,12 +20,11 @@ export class IphoneComponent implements OnInit {
     private pfs:PostFormService,
     private ps:PostService,
     private route: ActivatedRoute,
-    private router: Router,
+    private router: Router
   ) {
     pfs.postFormConfirmed$.subscribe(
       postForm => {
         this.postForm = postForm;
-        console.log(this.postForm)
       });
    }
 
@@ -43,8 +42,6 @@ export class IphoneComponent implements OnInit {
   showPosts(): void {
     this.ps.getPosts().subscribe(posts => {
       this.posts = posts;
-
-      console.log(this.posts)
     });
   }
 }

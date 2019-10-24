@@ -31,9 +31,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   ) {
     pfs.postFormConfirmed$.subscribe(
       postForm => {
-        console.log('postFormrm')
         this.postForm = postForm;
-        console.log(this.postForm )
       });
 
     this.mobile = (window.innerWidth < 450) ? true : false;
@@ -61,9 +59,7 @@ export class PostListComponent implements OnInit, OnDestroy {
       this.posts = posts;
       this.pfs.postFormConfirmed$.subscribe(
         postForm => {
-          console.log('postFormrm')
           this.postForm = postForm;
-          console.log(this.postForm )
         });
     });
   }
