@@ -57,6 +57,15 @@ export class PostAddComponent implements OnInit, OnDestroy {
     })
   }
 
+  deleteIngredient(index) {
+    this.ingredients.removeAt(index);
+  }
+
+  deleteDirection(index) {
+    this.directions.removeAt(index);
+  }
+
+
   get dishName() {return this.postForm.get('dishName');}
 
   get ingredients() {
