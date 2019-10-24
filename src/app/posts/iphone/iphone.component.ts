@@ -30,6 +30,7 @@ export class IphoneComponent implements OnInit {
    }
 
   ngOnInit() {
+
     this.showPosts();
 
     this.router.events.subscribe(event => {
@@ -42,6 +43,7 @@ export class IphoneComponent implements OnInit {
   showPosts(): void {
     this.ps.getPosts().subscribe(posts => {
       this.posts = posts;
+
       console.log(this.posts)
     });
   }

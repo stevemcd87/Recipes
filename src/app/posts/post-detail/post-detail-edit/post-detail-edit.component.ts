@@ -26,11 +26,11 @@ export class PostDetailEditComponent implements OnInit {
     ])
   });
   constructor(
+    private fb: FormBuilder,
     private auth: AuthService,
     private ps: PostService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder,
     private pfs: PostFormService
   ) { }
 
@@ -41,7 +41,17 @@ export class PostDetailEditComponent implements OnInit {
         this.showPost();
       }
     })
+  }
 
+  ngOnDestroy(  ) {
+    this.pfs.confirmPostForm(null);
+  }
+
+  postFormChanges():void {
+    this.postForm.valueChanges.subscribe(val=>{
+      this.pfs.confirmPostForm(val);
+      console.log(this.postForm)
+    })
   }
 
   showPost() {
@@ -55,6 +65,7 @@ export class PostDetailEditComponent implements OnInit {
           ingredients: this.fb.array(this.ingredientsFormArray),
           directions: this.fb.array(this.directionsFormArray)
         });
+        this.postFormChanges();
       }, error => {
         console.error('Error in getting  post');
       });

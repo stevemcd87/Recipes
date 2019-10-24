@@ -43,6 +43,7 @@ export class PostAddComponent implements OnInit, OnDestroy {
         console.log(this.recipes)
       }
     });
+    this.pfs.confirmPostForm(this.postForm.value);
     this.postFormChanges();
   }
 

@@ -23,12 +23,18 @@ export class PostDetailShowComponent implements OnInit {
 
   ngOnInit() {
     this.showPost();
+    // this.pfs.confirmPostForm(this.post);
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.showPost();
+        // this.pfs.confirmPostForm(this.post);
       }
     })
     this.mobile = (window.innerWidth < 450) ? true : false;
+  }
+
+  ngOnDestroy(  ) {
+    this.pfs.confirmPostForm(null);
   }
 
   showPost() {
@@ -36,6 +42,8 @@ export class PostDetailShowComponent implements OnInit {
     this.ps.getPost(+post)
       .subscribe((data: IPost) => {
         this.post = data;
+        this.pfs.confirmPostForm(this.post);
+        console.log('show')
       }, error => {
         console.error('Error in getting  post');
       });

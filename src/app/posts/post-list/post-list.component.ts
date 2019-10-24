@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { PostService } from '../post.service';
@@ -14,7 +14,7 @@ import { IPost} from '../../interface';
   styleUrls: ['./post-list.component.scss'],
     providers: [PostFormService]
 })
-export class PostListComponent implements OnInit {
+export class PostListComponent implements OnInit, OnDestroy {
   user = this.auth.userProfile$ ;
   posts: IPost[];
   mobile: boolean;
@@ -31,8 +31,11 @@ export class PostListComponent implements OnInit {
   ) {
     pfs.postFormConfirmed$.subscribe(
       postForm => {
+        console.log('postFormrm')
         this.postForm = postForm;
+        console.log(this.postForm )
       });
+
     this.mobile = (window.innerWidth < 450) ? true : false;
     console.log(this.mobile)
 
@@ -49,10 +52,19 @@ export class PostListComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    console.log('destroy')
+  }
+
   showPosts(): void {
     this.ps.getPosts().subscribe(posts => {
       this.posts = posts;
-
+      this.pfs.postFormConfirmed$.subscribe(
+        postForm => {
+          console.log('postFormrm')
+          this.postForm = postForm;
+          console.log(this.postForm )
+        });
     });
   }
 

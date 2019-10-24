@@ -21,6 +21,7 @@ export class PostFormService {
   // }
 
   confirmPostForm(postForm: IPost) {
+    console.log(postForm)
     this.postFormConfirmedSource.next(postForm);
   }
 

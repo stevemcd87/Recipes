@@ -27,7 +27,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dishName: 'Meatloaf w/ BrnSugarGlaze',
         ingredients: [
           { amount: '1 pound', ingredient: 'Ground Beef' },
-          { amount: '3 tablespoons', ingredient: 'Adobo' },
+          { amount: '3 tablespoons', ingredient: 'Adobo Seasoning' },
           { amount: '1/2 cup', ingredient: 'White Onion' },
           { amount: '1/2 cup', ingredient: 'Green Pepper' },
           { amount: '2', ingredient: 'Eggs' },
