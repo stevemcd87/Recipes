@@ -22,16 +22,12 @@
     background-color: #e1d6c0;
   }
   #ingredients {
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    button {
-      width: 226px;
-      height: 50px;
-      align-self: center;
-      font-family: 'Gloria Hallelujah', cursive;
-    }
     .ingredient {
+      position: relative;
         background-color: #e1d6c0;
         width: 226px;
         margin: .5em;
@@ -45,20 +41,48 @@
         }
 
       }
+
     }
 
     #directions {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      textarea, button {
+
+      .direction{
+        position: relative;
+      }
+      textarea {
         height: 125px;
-        width: 190px;
+        width: 226px;
         background-color: #e1d6c0;
         font-family: 'Gloria Hallelujah', cursive;
+        box-sizing: border-box;
       }
     }
 
+    button.add-item {
+      width: 226px;
+      height: 50px;
+      align-self: center;
+      font-family: 'Gloria Hallelujah', cursive;
+    }
+
+    button.delete-item{
+      border: 1px solid black;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      &:hover {
+        cursor: pointer;
+        -webkit-box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+      }
+    }
 
 
 }

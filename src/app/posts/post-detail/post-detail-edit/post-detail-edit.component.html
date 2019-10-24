@@ -22,6 +22,7 @@
         <div class="ingredient"
           *ngFor="let ing of ingredients.controls; let i=index">
           <div [formGroupName]="i">
+            <button class="delete-item" type="button" (click)="deleteIngredient(i)">X</button>
             <div class="post-ingredient">
               <div *ngIf="ingredient(i).invalid && (ingredient(i).dirty || ingredient(i).touched)"
                   class="alert alert-danger">
@@ -56,10 +57,11 @@
                 type="text">
 
             </div>
+
           </div>
 
         </div>
-        <button type="button" (click)="addIngredient()">Add Ingredient</button>
+        <button class="add-item" type="button" (click)="addIngredient()">Add Ingredient</button>
       </div>
 
     </div>
@@ -80,8 +82,9 @@
           </div>
           <textarea [formControlName]="i" type="text"
           (blur)="direction(i).setValue(direction(i).value.trim());"></textarea>
+          <button class="delete-item" type="button" (click)="deleteDirection(i)">X</button>
         </div>
-        <button type="button" (click)="addDirection()">Add Direction</button>
+        <button class="add-item" type="button" (click)="addDirection()">Add Direction</button>
       </div>
 
     </div>

@@ -50,8 +50,15 @@ export class PostDetailEditComponent implements OnInit {
   postFormChanges():void {
     this.postForm.valueChanges.subscribe(val=>{
       this.pfs.confirmPostForm(val);
-      console.log(this.postForm)
     })
+  }
+
+  deleteIngredient(index) {
+    this.ingredients.removeAt(index);
+  }
+
+  deleteDirection(index) {
+    this.directions.removeAt(index);
   }
 
   showPost() {
@@ -65,6 +72,7 @@ export class PostDetailEditComponent implements OnInit {
           ingredients: this.fb.array(this.ingredientsFormArray),
           directions: this.fb.array(this.directionsFormArray)
         });
+        this.pfs.confirmPostForm(this.post);
         this.postFormChanges();
       }, error => {
         console.error('Error in getting  post');
