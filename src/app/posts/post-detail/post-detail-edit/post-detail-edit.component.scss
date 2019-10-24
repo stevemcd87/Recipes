@@ -1,5 +1,6 @@
 #edit-post {
   font-family: 'Gloria Hallelujah', cursive;
+
   #dish-name-label {
     margin: 0;
   }
@@ -8,9 +9,55 @@
     text-align: center;
     font-size: 1.1em;
   }
-  input {
+  input, textarea {
     font-family: 'Gloria Hallelujah', cursive;
     background-color: inherit;
     border: 0;
+    text-align: center;
+    border-bottom: 1px solid darkgrey;
   }
+
+
+  button {
+    background-color: inherit;
+  }
+  #ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    button {
+      width: 226px;
+      height: 50px;
+      align-self: center;
+      background-color: #e1d6c0;
+      font-family: 'Gloria Hallelujah', cursive;
+    }
+    .ingredient {
+        background-color: #e1d6c0;
+        width: 226px;
+        margin: .5em;
+        padding: .2em;
+        label {
+          display: inline-block;
+          width: 99px;
+        }
+        input {
+          width: 125px;
+        }
+
+      }
+    }
+
+    #directions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      textarea, button {
+        height: 125px;
+        width: 190px;
+      }
+    }
+
+
+
 }
