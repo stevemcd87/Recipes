@@ -10,6 +10,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { IphoneComponent } from './iphone/iphone.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { PostDetailEditComponent } from './post-detail/post-detail-edit/post-detail-edit.component';
+import { PostDetailShowComponent } from './post-detail/post-detail-show/post-detail-show.component';
 // import { AppComponent } from '../app.component';
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PostDetailEditComponent } from './post-detail/post-detail-edit/post-det
     PostDetailComponent,
     IphoneComponent,
     NavbarComponent,
-    PostDetailEditComponent
+    PostDetailEditComponent,
+    PostDetailShowComponent
     // AppComponent
   ],
   imports: [

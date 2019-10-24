@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../auth.service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { PostService } from '../../post.service';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormArray, FormGroup, FormControl} from '@angular/forms';
-import { IPost} from '../../../interface';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { PostFormService } from '../../post-form.service';
+import { PostService } from '../../post.service';
+import { AuthService } from '../../../auth.service';
+import { IPost} from '../../../interface';
 @Component({
   selector: 'app-post-detail-edit',
   templateUrl: './post-detail-edit.component.html',

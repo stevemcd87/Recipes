@@ -1,5 +1,41 @@
-#iphone6-screen {
-  background-image: url('../../../assets/images/food-bg2.png');
+// #iphone6-screen {
+//   background-image: url('../../../assets/images/food-bg2.png');
+//   background-repeat: no-repeat;
+//   background-size: contain;
+// }
+
+#iphone6 {
+  width: 350px;
+  height:700px;
+  background-image: url('../../../assets/images/iphone6.png');
   background-repeat: no-repeat;
   background-size: contain;
+  margin: 0 auto;
+  position: relative;
+
+  #iphone6-screen{
+    background-image: url('../../../assets/images/food-bg2.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    text-align: center;
+    width: 298px;
+    height: 530px;
+    top:86px;
+    left:22px;
+    background-color: #fcf8f5;
+     overflow: scroll;
+     &::-webkit-scrollbar
+      {
+          width: 5px;
+          background-color: #F5F5F5;
+      }
+
+      &::-webkit-scrollbar-thumb
+      {
+          background-color: #666;
+          border: 2px solid #666;
+      }
+  }
 }
+// }

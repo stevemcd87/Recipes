@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { PostService } from '../post.service';
-import { Validators } from '@angular/forms';
-import { FormBuilder, FormArray } from '@angular/forms';
-import { IPost} from '../../interface';
-
+import { PostFormService } from '../../post-form.service';
+import { PostService } from '../../post.service';
+import { AuthService } from '../../../auth.service';
+import { IPost} from '../../../interface';
 @Component({
-  selector: 'app-post-detail',
-  templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.scss']
+  selector: 'app-post-detail-show',
+  templateUrl: './post-detail-show.component.html',
+  styleUrls: ['./post-detail-show.component.scss']
 })
-export class PostDetailComponent implements OnInit {
+export class PostDetailShowComponent implements OnInit {
   post: IPost;
   mobile: boolean;
 
@@ -20,7 +18,7 @@ export class PostDetailComponent implements OnInit {
     private ps: PostService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private pfs: PostFormService
   ) { }
 
   ngOnInit() {
@@ -29,26 +27,18 @@ export class PostDetailComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.showPost();
       }
-    });
+    })
     this.mobile = (window.innerWidth < 450) ? true : false;
   }
 
   showPost() {
-    const post = this.route.snapshot.paramMap.get('id');
+    const post = this.route.snapshot.parent.paramMap.get('id');
     this.ps.getPost(+post)
       .subscribe((data: IPost) => {
         this.post = data;
-        console.log(this.post);
       }, error => {
         console.error('Error in getting  post');
       });
-  }
-
-  delete(post: IPost): void {
-    this.ps.deletePost(post)
-      .subscribe((val)=>{
-         this.router.navigate(['/posts'])
-       });;
-  }
+    }
 
 }

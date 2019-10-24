@@ -10,23 +10,3 @@
      (click)="delete(post)">Delete Post</button>
   </div>
    <router-outlet></router-outlet>
-  <div id="recipe">
-    <div id="show-post">
-      <p id="post-dish-name">{{post.dishName}}</p>
-      <ul id="post-ingredients">
-        <p>Ingredients</p>
-        <li *ngFor="let ingredient of post.ingredients"
-          class="post-ingredient">
-          {{ingredient.ingredient}} - {{ingredient.amount}}
-        </li>
-      </ul>
-      <ul id="post-directions">
-        <p>Directions</p>
-        <li *ngFor="let direction of post.directions"
-          class="post-direction">
-          {{direction}}
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>

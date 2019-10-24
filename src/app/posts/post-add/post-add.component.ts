@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { PostService } from '../post.service';
@@ -11,7 +11,7 @@ import { PostFormService } from '../post-form.service';
   templateUrl: './post-add.component.html',
   styleUrls: ['./post-add.component.scss']
 })
-export class PostAddComponent implements OnInit {
+export class PostAddComponent implements OnInit, OnDestroy {
   user = this.auth.userProfile$ ;
   posts: IPost[];
   recipes: IRecipe[];
@@ -44,6 +44,10 @@ export class PostAddComponent implements OnInit {
       }
     });
     this.postFormChanges();
+  }
+
+  ngOnDestroy(  ) {
+    this.pfs.confirmPostForm(null);
   }
 
   postFormChanges():void {

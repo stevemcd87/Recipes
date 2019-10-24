@@ -1,8 +1,10 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostDetailEditComponent } from './post-detail/post-detail-edit/post-detail-edit.component';
+import { PostDetailShowComponent } from './post-detail/post-detail-show/post-detail-show.component';
 import { PostAddComponent } from './post-add/post-add.component';
 import { AuthGuard } from '../auth.guard';
 const postRoutes: Routes = [
@@ -22,11 +24,11 @@ const postRoutes: Routes = [
           {
             path: 'edit',
             component: PostDetailEditComponent
+          },
+          {
+            path: '',
+            component: PostDetailShowComponent
           }
-          // {
-          //   path: '',
-          //   component: PostDetailEditComponent
-          // }
         ]
       }
     ]

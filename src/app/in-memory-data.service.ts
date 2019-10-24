@@ -27,20 +27,18 @@ export class InMemoryDataService implements InMemoryDbService {
         dishName: 'Meatloaf w/ BrnSugarGlaze',
         ingredients: [
           { amount: '1 pound', ingredient: 'Ground Beef' },
-          { amount: '2 teaspoons', ingredient: 'Salt' },
-          { amount: '1 teaspoon', ingredient: 'Black Pepper' },
+          { amount: '3 tablespoons', ingredient: 'Adobo' },
           { amount: '1/2 cup', ingredient: 'White Onion' },
           { amount: '1/2 cup', ingredient: 'Green Pepper' },
-          { amount: '1', ingredient: 'Eggs' },
-          { amount: '8 ounce ', ingredient: 'diced Tomatoes' },
-          { amount: '1/2 cup', ingredient: 'cooking Oats' },
+          { amount: '2', ingredient: 'Eggs' },
+          { amount: '1/2 cup', ingredient: 'Bread Crumbs' },
           { amount: '1/3 cup', ingredient: 'Ketchup' },
           { amount: '3 tablespoons', ingredient: 'Brown Sugar' },
-          { amount: '2 tablespoons ', ingredient: 'yellow Mustard' }
+          { amount: '2 tablespoons ', ingredient: 'Yellow Mustard' }
         ],
         directions:[
           "Preheat your oven to 375 degrees.",
-          "Mix the ground beef, salt, pepper, onion, green peppers, egg, oats and diced tomatoes well.",
+          "Mix the ground beef, Adobo, onion, green peppers, egg, and bread crumbs well.",
           "Form a loaf and place in a baking dish.",
           "Mix ketchup, brown sugar and mustard together and spread over meatloaf.",
           "Bake uncovered 1 hour, draining grease away if needed"
