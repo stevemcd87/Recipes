@@ -1,10 +1,25 @@
-
+#update-links {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  a, button {
+    background-color: #e1d6c0;
+    border: none;
+    color: black;
+    padding: 1em;
+    border-radius: 50%;
+  }
+  .active {
+    font-weight: bold;
+    -webkit-box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+  }
+}
 
 #recipe {
 margin: 0 auto;
-// background-size: contain;
-// background-image: url('../../../assets/images/notebook.png');
-// background-repeat: round;
 width: 90%;
 min-height: 500px;
 

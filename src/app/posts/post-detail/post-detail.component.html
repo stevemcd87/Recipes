@@ -1,11 +1,15 @@
 <div *ngIf="post" class="post">
-  <a [routerLink]="['/posts',post.id,'edit']">Edit</a>
-  <button class="delete" title="delete post"
-   (click)="delete(post)">x</button>
+
   <div id="update-links">
 
- <router-outlet></router-outlet>
+    <a [routerLink]="['/posts',post.id,'edit']"
+      routerLinkActive="active">
+      Edit Post
+    </a>
+    <button class="delete" title="delete post"
+     (click)="delete(post)">Delete Post</button>
   </div>
+   <router-outlet></router-outlet>
   <div id="recipe">
     <div id="show-post">
       <p id="post-dish-name">{{post.dishName}}</p>

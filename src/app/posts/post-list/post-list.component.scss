@@ -6,14 +6,39 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
+      .user-pic-span {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin: .3em;
+      }
       .dash {
-        margin: 0 .5em;
+        margin: .5em;
       }
       a.post{
         color: black;
       }
     }
   }
+
+  #add-recipe {
+    border: none;
+    padding: 1em;
+    a {
+      color: black;
+      padding: 1em;
+      border-radius: 50%;
+      background-color: #e1d6c0;
+    }
+    .active {
+      font-weight: bold;
+      -webkit-box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 32px 3px rgba(0,0,0,0.75);
+    }
+  }
+
   #iphone6 {
     width: 350px;
     height:700px;

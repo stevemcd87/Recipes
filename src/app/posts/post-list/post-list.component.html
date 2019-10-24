@@ -1,21 +1,28 @@
 <div id="post-list-component">
   <ul id="post-list">
     <li *ngFor="let post of posts">
-      <span>
+
         <a
           class="post"
-          routerLink="/posts/{{post.id}}">
+          routerLink="/posts/{{post.id}}"
+          routerLinkActive="active">
           {{post.dishName}}
         </a>
-      </span>
-      <span class="dash"> &ndash; </span>
-      <span>{{post.userName}}</span>
+
+    <span class="dash">  &ndash;</span>
+        {{post.userName}}
+        <img class="user-pic-span"
+          [src]="post.userPicture"
+          alt="User Picture">
     </li>
   </ul>
 
-
-
-  <a routerLink="add">Add Recipe</a>
+  <div id ="add-recipe">
+    <a  routerLink="add"
+      routerLinkActive="active">
+      Add Recipe
+    </a>
+  </div>
 
   <div id="post-child">
     <router-outlet ></router-outlet>
