@@ -23,7 +23,8 @@ const postRoutes: Routes = [
         children: [
           {
             path: 'edit',
-            component: PostDetailEditComponent
+            component: PostDetailEditComponent,
+            canActivate: [AuthGuard]
           },
           {
             path: '',

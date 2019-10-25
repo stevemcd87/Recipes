@@ -1,6 +1,7 @@
 #iphone6 {
-  width: 350px;
-  height:700px;
+  box-sizing: border-box;
+  width: 300px;
+  height:600px;
   background-image: url('../../../assets/images/iphone6.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -15,10 +16,10 @@
     }
     position: absolute;
     text-align: center;
-    width: 298px;
-    height: 530px;
-    top:86px;
-    left:22px;
+    width: 261px;
+    height: 456px;
+    top:73px;
+    left:17px;
     background-color: #fcf8f5;
     overflow: scroll;
     &::-webkit-scrollbar {
@@ -133,5 +134,12 @@ min-height: 500px;
 
       }
     }
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+  #iphone-component {
+    display: none;
   }
 }

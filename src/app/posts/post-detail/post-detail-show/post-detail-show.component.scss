@@ -29,3 +29,11 @@ min-height: 500px;
     }
   }
 }
+
+@media screen and (min-width: 451px) {
+  #recipe{
+    display: none;
+    height:0;
+    height:0;
+  }
+}

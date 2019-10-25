@@ -11,7 +11,6 @@ import { IPost} from '../../../interface';
 })
 export class PostDetailShowComponent implements OnInit {
   post: IPost;
-  mobile: boolean;
 
   constructor(
     private auth: AuthService,
@@ -28,7 +27,6 @@ export class PostDetailShowComponent implements OnInit {
         this.showPost();
       }
     })
-    this.mobile = (window.innerWidth < 450) ? true : false;
   }
 
   ngOnDestroy(  ) {

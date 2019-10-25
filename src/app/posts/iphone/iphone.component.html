@@ -1,55 +1,57 @@
-
-<p *ngIf="postForm">* IPhone is scrollable</p>
-<div *ngIf="postForm" id="iphone6">
-  <div id="iphone6-screen">
-    <div id="iphone6-screen2">
-      <app-navbar></app-navbar>
-      <div id="iphone6-main">
-        <ul id="post-list">
-          <li *ngFor="let post of posts">
-            <a
-              class="post"
-              routerLink="/posts/{{post.id}}"
-              routerLinkActive="active">
-              {{post.dishName}}
+<div id="iphone-component">
+  <p *ngIf="postForm">* IPhone is scrollable</p>
+  <div *ngIf="postForm" id="iphone6">
+    <div id="iphone6-screen">
+      <div id="iphone6-screen2">
+        <app-navbar></app-navbar>
+        <div id="iphone6-main">
+          <ul id="post-list">
+            <li *ngFor="let post of posts">
+              <a
+                class="post"
+                routerLink="/posts/{{post.id}}"
+                routerLinkActive="active">
+                {{post.dishName}}
+              </a>
+              <span class="dash">  &ndash;</span>
+              {{post.userName}}
+              <img class="user-pic-span"
+                [src]="post.userPicture"
+                alt="User Picture">
+            </li>
+          </ul>
+          <div id ="add-recipe">
+            <a href="#">
+              Add Recipe
             </a>
-            <span class="dash">  &ndash;</span>
-            {{post.userName}}
-            <img class="user-pic-span"
-              [src]="post.userPicture"
-              alt="User Picture">
-          </li>
-        </ul>
-        <div id ="add-recipe">
-          <a href="#">
-            Add Recipe
-          </a>
-        </div>
-        <div id="update-links">
-          <a href="#">
-            Edit Post
-          </a>
-          <button class="delete" title="delete post">Delete Post</button>
-        </div>
-        <div id="recipe">
-          <div id="show-post">
-            <p id="post-dish-name">{{postForm.dishName}}</p>
-            <ul id="post-ingredients">
-              <p>Ingredients</p>
-              <li *ngFor="let ingredient of postForm.ingredients"
-                class="post-ingredient">
-                {{ingredient.ingredient}} - {{ingredient.amount}}
-              </li>
-            </ul>
-            <ul id="post-directions">
-              <p>Directions</p>
-              <li *ngFor="let direction of postForm.directions"
-                class="post-direction">
-                {{direction}}
-              </li>
-            </ul>
+          </div>
+          <div id="update-links">
+            <a href="#">
+              Edit Post
+            </a>
+            <button class="delete" title="delete post">Delete Post</button>
+          </div>
+          <div id="recipe">
+            <div id="show-post">
+              <p id="post-dish-name">{{postForm.dishName}}</p>
+              <ul id="post-ingredients">
+                <p>Ingredients</p>
+                <li *ngFor="let ingredient of postForm.ingredients"
+                  class="post-ingredient">
+                  {{ingredient.ingredient}} - {{ingredient.amount}}
+                </li>
+              </ul>
+              <ul id="post-directions">
+                <p>Directions</p>
+                <li *ngFor="let direction of postForm.directions"
+                  class="post-direction">
+                  {{direction}}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+    </div>
   </div>
+
 </div>

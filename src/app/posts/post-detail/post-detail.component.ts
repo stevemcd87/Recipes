@@ -13,7 +13,7 @@ import { IPost} from '../../interface';
 })
 export class PostDetailComponent implements OnInit {
   post: IPost;
-  mobile: boolean;
+  user;
 
   constructor(
     private auth: AuthService,
@@ -30,7 +30,9 @@ export class PostDetailComponent implements OnInit {
         this.showPost();
       }
     });
-    this.mobile = (window.innerWidth < 450) ? true : false;
+    this.auth.userProfile$.subscribe(user=>{
+      this.user = user;
+    })
   }
 
   showPost() {

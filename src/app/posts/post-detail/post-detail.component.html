@@ -1,6 +1,6 @@
 <div *ngIf="post" class="post">
 
-  <div id="update-links">
+  <div *ngIf="user && post.userEmail === user.email" id="update-links">
 
     <a [routerLink]="['/posts',post.id,'edit']"
       routerLinkActive="active">

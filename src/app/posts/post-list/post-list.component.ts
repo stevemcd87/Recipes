@@ -17,7 +17,6 @@ import { IPost} from '../../interface';
 export class PostListComponent implements OnInit, OnDestroy {
   user = this.auth.userProfile$ ;
   posts: IPost[];
-  mobile: boolean;
   postForm: IPost;
   phonePost: IPost;
 
@@ -33,10 +32,6 @@ export class PostListComponent implements OnInit, OnDestroy {
       postForm => {
         this.postForm = postForm;
       });
-
-    this.mobile = (window.innerWidth < 450) ? true : false;
-    console.log(this.mobile)
-
    }
 
   ngOnInit(  ) {
