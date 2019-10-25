@@ -47,10 +47,12 @@ export class PostDetailComponent implements OnInit {
   }
 
   delete(post: IPost): void {
-    this.ps.deletePost(post)
-      .subscribe((val)=>{
-         this.router.navigate(['/posts'])
-       });;
+    if(confirm("Are you sure you want to delete this post?")) {
+      this.ps.deletePost(post)
+        .subscribe((val)=>{
+           this.router.navigate(['/posts'])
+         });
+    }
   }
 
 }
