@@ -5,3 +5,4 @@
   
   Visit https://stevemcd87.github.io/RoomDig/home to experience the app!!!
   
+  ![RoomDig App](src/assets/RoomDig.gif)
