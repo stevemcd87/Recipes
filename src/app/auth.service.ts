@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+// import Auth0Lock from '@auth0/auth0-lock'; // the fix
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  // lock = new Auth0Lock('vsUIGBX3QI5QZj50lHyy7v0DjUha80xe', 'stevemcd87.auth0.com', {})
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
+// import { AuthService } from '../../auth.service';
 import { PostFormService } from '../post-form.service';
 import { PostService } from '../post.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -11,12 +11,12 @@ import { IPost} from '../../interface';
   styleUrls: ['./iphone.component.scss']
 })
 export class IphoneComponent implements OnInit {
-    user = this.auth.userProfile$ ;
+    // user = this.auth.userProfile$ ;
     postForm: IPost;
     innerWidth:number;
     posts:IPost[];
   constructor(
-    private auth: AuthService,
+    // private auth: AuthService,
     private pfs:PostFormService,
     private ps:PostService,
     private route: ActivatedRoute,

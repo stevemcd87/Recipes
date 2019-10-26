@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from './auth.service';
+// import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',

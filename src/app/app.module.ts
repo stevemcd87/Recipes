@@ -9,25 +9,24 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
-import { ProfileComponent } from './profile/profile.component';
 
 import { PostService } from './posts/post.service';
 import { PostsModule } from './posts/posts.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CallbackComponent,
-    ProfileComponent,
-    PageNotFoundComponent
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    // NavbarComponent,
+    // NavbarComponent
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -38,6 +37,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule
   ],
   providers: [PostService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    NavbarComponent
+  ]
 })
 export class AppModule { }
