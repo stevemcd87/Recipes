@@ -13,11 +13,18 @@ export class InMemoryDataService implements InMemoryDbService {
         userPicture: "https://lh6.googleusercontent.com/-XZlWad7g3ao/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdk__b9LGXRme6pahIJO-SraGzMGw/photo.jpg",
         dishName: 'Flan',
         ingredients: [
-          {ingredient: 'eggs', amount: '3' }
+          {ingredient: 'Sugar', amount: '1 cup' },
+          {ingredient: 'Eggs', amount: '3' },
+          {ingredient: 'Condensed Milk', amount: '1 can' },
+          {ingredient: 'Evaporated Milk', amount: '1 can' },
+          {ingredient: 'Vanilla Extract', amount: '1 tablespoon' }
         ],
         directions:[
-          'get flour',
-          'do more stuff'
+          'Preheat oven to 350 degrees.',
+          'In a medium saucepan over medium-low heat, melt sugar until liquefied and golden in color. Carefully pour hot syrup into a 9 inch round glass baking dish, turning the dish to evenly coat the bottom and sides. Set aside.',
+          'In a large bowl, beat eggs. Beat in condensed milk, evaporated milk and vanilla until smooth. Pour egg mixture into baking dish. Cover with aluminum foil.',
+          'Bake in preheated oven 60 minutes. Let cool completely.',
+          'To serve, carefully invert on serving plate with edges when completely cool.'
         ]
       },
       { id: 12,
