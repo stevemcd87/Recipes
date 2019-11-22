@@ -73,7 +73,7 @@ export class AuthService {
 
   login(redirectPath: string = '/') {
     let uri = (window.location.origin.includes('github')) ?
-      `${window.location.origin}/RoomDig/callback` :
+      `${window.location.origin}/Recipes/callback` :
       `${window.location.origin}/callback`;
     console.log(window.location.origin)
     // A desired redirect path can be passed to login method
@@ -116,7 +116,7 @@ export class AuthService {
 
   logout() {
     let uri = (window.location.origin.includes('github')) ?
-      `${window.location.origin}/RoomDig/` :
+      `${window.location.origin}/Recipes/` :
       window.location.origin;
     // Ensure Auth0 client instance exists
     // Remove tokens and expiry time
